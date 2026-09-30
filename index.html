@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tomás Mathe · Portfólio</title>
+  <meta name="description" content="Portfólio de Tomás Mathe, desenvolvedor de sistemas em Maputo. Projectos em Spring Boot, Flutter, Python e machine learning aplicados a saúde e educação em Moçambique.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Tomás Mathe · Portfólio">
+  <meta property="og:description" content="Desenvolvedor de sistemas em Maputo. Projectos de saúde, educação e machine learning.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Aplica o tema guardado antes de pintar a página (evita "flash" de tema errado)
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Tomás Mathe, início">TM<span aria-hidden="true">.</span></a>
+      <nav aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="#projectos">Projectos</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Alternar entre tema claro e escuro" aria-pressed="false">
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+      <div class="wrap">
+        <p class="eyebrow">Maputo, Moçambique</p>
+        <h1 id="titulo-hero">Tomás Mathe</h1>
+        <p class="lead">
+          Desenvolvo sistemas que resolvem problemas reais de instituições moçambicanas,
+          sobretudo em saúde e educação, combinando engenharia de software e machine learning.
+        </p>
+        <ul class="hero-facts" aria-label="Resumo">
+          <li>Finalista de Informática na UPM</li>
+          <li>Estagiário no SENASA</li>
+          <li>Professor de computação no Colégio Dzovo</li>
+        </ul>
+        <p class="hero-actions">
+          <a class="btn btn-primary" href="#projectos">Ver projectos</a>
+          <a class="btn" href="https://github.com/tmbandze" rel="noopener">GitHub</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="projectos" class="section" aria-labelledby="titulo-projectos">
+      <div class="wrap">
+        <h2 id="titulo-projectos">Projectos</h2>
+        <p class="section-intro">Sistemas completos, do desenho da arquitectura aos testes.</p>
+
+        <div class="cards">
+
+          <article class="card" aria-labelledby="p-sangue">
+            <figure class="shot" data-shot="sangue-solidario-01">
+              <img src="assets/img/sangue-solidario-01.png" width="1440" height="900" loading="lazy"
+                   alt="Painel do Sangue Solidário com indicadores de doações e previsão de conversão de dadores">
+              <figcaption class="shot-fallback">Captura de ecrã em breve</figcaption>
+            </figure>
+            <div class="card-body">
+              <h3 id="p-sangue">Sangue Solidário</h3>
+              <p class="tag-line">Trabalho de fim de curso · Saúde · Machine learning</p>
+              <p>
+                Sistema de gestão de doações de sangue. Inclui um componente preditivo que estuda
+                como converter dadores de reposição familiar em dadores voluntários regulares,
+                tema de investigação ligado ao SENASA.
+              </p>
+              <ul class="chips" aria-label="Tecnologias">
+                <li>Spring Boot</li>
+                <li>Arquitectura hexagonal</li>
+                <li>PostgreSQL + pgvector</li>
+                <li>JWT</li>
+                <li>Machine learning</li>
+              </ul>
+              <ul class="facts">
+                <li>91 testes automatizados</li>
+                <li>Segurança baseada em JWT</li>
+              </ul>
+              <p class="links">
+                <a href="https://github.com/tmbandze" rel="noopener">Código no GitHub<span class="visually-hidden"> (Sangue Solidário)</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="p-stageup">
+            <figure class="shot" data-shot="stageup-01">
+              <img src="assets/img/stageup-01.png" width="1440" height="900" loading="lazy"
+                   alt="Painel do StageUP para gestão de estágios">
+              <figcaption class="shot-fallback">Captura de ecrã em breve</figcaption>
+            </figure>
+            <div class="card-body">
+              <h3 id="p-stageup">StageUP</h3>
+              <p class="tag-line">Portal de estágios · Desenvolvimento independente</p>
+              <p>
+                Portal de gestão de estágios, desenvolvido de forma independente e apresentado
+                em contexto científico nas Jornadas Científicas.
+              </p>
+              <p class="links">
+                <a href="https://github.com/tmbandze" rel="noopener">Código no GitHub<span class="visually-hidden"> (StageUP)</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="p-java">
+            <figure class="shot" data-shot="java-school-01">
+              <img src="assets/img/java-school-01.png" width="1440" height="900" loading="lazy"
+                   alt="Ecrã do Java School com exercício de programação e diálogo com o tutor">
+              <figcaption class="shot-fallback">Captura de ecrã em breve</figcaption>
+            </figure>
+            <div class="card-body">
+              <h3 id="p-java">Java School</h3>
+              <p class="tag-line">Educação · Tutor de programação</p>
+              <p>
+                Tutor de Java com método socrático: guia o aluno com perguntas em vez de entregar
+                a resposta. O backend em Spring Boot funciona como fronteira de confiança e o
+                código dos alunos é executado com Judge0.
+              </p>
+              <ul class="chips" aria-label="Tecnologias">
+                <li>Spring Boot</li>
+                <li>Judge0</li>
+                <li>Java</li>
+              </ul>
+              <ul class="facts">
+                <li>56 testes no núcleo pedagógico</li>
+                <li>Documentação extensa de arquitectura</li>
+              </ul>
+              <p class="links">
+                <a href="https://github.com/tmbandze" rel="noopener">Código no GitHub<span class="visually-hidden"> (Java School)</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="p-materiais">
+            <div class="card-body">
+              <h3 id="p-materiais">Materiais de ensino de computação</h3>
+              <p class="tag-line">Colégio Dzovo · 4.ª a 6.ª classe · Português e inglês</p>
+              <p>
+                Unidade completa de programação em Scratch, com manuais do professor, livros do aluno,
+                avaliações e catálogo de projectos, ligada à feira de ciências de Outubro. Também
+                criei uma colecção bilingue de livros de história de Moçambique para a 4.ª e 5.ª classes.
+              </p>
+              <ul class="chips" aria-label="Áreas">
+                <li>Scratch</li>
+                <li>Currículo Cambridge Primary</li>
+                <li>Material bilingue</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologias" class="section alt" aria-labelledby="titulo-tec">
+      <div class="wrap">
+        <h2 id="titulo-tec">Tecnologias</h2>
+        <div class="stack">
+          <div>
+            <h3>Backend e dados</h3>
+            <ul class="chips"><li>Java</li><li>Spring Boot</li><li>Python</li><li>PostgreSQL</li><li>pgvector</li><li>Docker</li></ul>
+          </div>
+          <div>
+            <h3>Mobile</h3>
+            <ul class="chips"><li>Flutter</li></ul>
+          </div>
+          <div>
+            <h3>Práticas</h3>
+            <ul class="chips"><li>Arquitectura hexagonal</li><li>Testes automatizados</li><li>Segurança com JWT</li><li>Integrações de pagamento locais (M-Pesa, e-Mola)</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section" aria-labelledby="titulo-sobre">
+      <div class="wrap narrow">
+        <h2 id="titulo-sobre">Sobre mim</h2>
+        <p>
+          Sou finalista da Licenciatura em Informática, com especialização em Engenharia de
+          Desenvolvimento de Sistemas, na Universidade Pedagógica de Maputo. Trabalho como
+          desenvolvedor e consultor em Maputo e faço estágio no Serviço Nacional de Sangue (SENASA).
+        </p>
+        <p>
+          Lecciono computação do Cambridge Primary (4.ª a 6.ª classe) no Colégio Dzovo, o que me
+          ensinou a explicar ideias técnicas de forma clara, e isso reflecte-se no modo como
+          documento e desenho os meus projectos.
+        </p>
+        <ul class="facts">
+          <li>Certificação Google IT Support</li>
+          <li>Interesse central: IA e engenharia de software aplicadas a saúde e educação em Moçambique</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="section alt" aria-labelledby="titulo-contacto">
+      <div class="wrap narrow">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <p>Disponível para colaborações, consultoria e oportunidades.</p>
+        <ul class="contact-list">
+          <li><a href="https://github.com/tmbandze" rel="noopener">GitHub · tmbandze</a></li>
+          <!-- TODO: adicionar email e LinkedIn, por exemplo:
+          <li><a href="mailto:O_TEU_EMAIL">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/O_TEU_PERFIL" rel="noopener">LinkedIn</a></li>
+          -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="ano">2026</span> Tomás Mathe · Maputo, Moçambique</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
