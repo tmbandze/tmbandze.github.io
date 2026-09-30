@@ -23,17 +23,51 @@
       syncButton();
     });
   }
+  if (media.addEventListener) media.addEventListener("change", syncButton);
   syncButton();
 
   // Ano no rodapé
   var year = document.getElementById("ano");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Se uma captura de ecrã ainda não existe, mostra o espaço reservado
-  document.querySelectorAll(".shot img").forEach(function (img) {
-    var figure = img.closest(".shot");
-    function markMissing() { if (figure) figure.classList.add("no-shot"); }
-    if (img.complete && img.naturalWidth === 0) markMissing();
-    img.addEventListener("error", markMissing);
+  // Fotos e capturas que ainda não existem ficam escondidas
+  function whenMissing(img, fn) {
+    if (img.complete && img.naturalWidth === 0) fn();
+    img.addEventListener("error", fn);
+  }
+
+  document.querySelectorAll(".portrait img").forEach(function (img) {
+    whenMissing(img, function () { img.parentElement.classList.add("is-missing"); });
   });
+
+  // Imagens dos projectos: aceita .png, .jpg ou .webp com o mesmo nome
+  var extensions = [".png", ".jpg", ".webp"];
+  document.querySelectorAll(".shot img").forEach(function (img) {
+    var base = img.getAttribute("src").replace(/\.png$/, "");
+    var attempt = 0;
+    function next() {
+      attempt += 1;
+      if (attempt < extensions.length) img.src = base + extensions[attempt];
+      else img.parentElement.classList.add("is-missing");
+    }
+    img.loading = "eager";
+    img.addEventListener("error", next);
+    if (img.complete && img.naturalWidth === 0) next();
+  });
+
+  var gallery = document.querySelector(".gallery");
+  if (gallery) {
+    var figures = gallery.querySelectorAll("figure");
+    figures.forEach(function (figure) {
+      var img = figure.querySelector("img");
+      // lazy: força o pedido para saber cedo se a foto existe
+      img.loading = "eager";
+      whenMissing(img, function () {
+        figure.classList.add("is-missing");
+        if (gallery.querySelectorAll("figure.is-missing").length === figures.length) {
+          gallery.classList.add("is-empty");
+        }
+      });
+    });
+  }
 })();
