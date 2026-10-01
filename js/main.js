@@ -45,20 +45,33 @@
     whenMissing(img, function () { img.parentElement.classList.add("is-missing"); });
   });
 
-  // Imagens dos projectos: aceita .png, .jpg ou .webp com o mesmo nome
-  var extensions = [".png", ".jpg", ".webp"];
-  document.querySelectorAll(".shot img").forEach(function (img) {
-    var base = img.getAttribute("src").replace(/\.png$/, "");
-    var attempt = 0;
-    function next() {
-      attempt += 1;
-      if (attempt < extensions.length) img.src = base + extensions[attempt];
-      else img.parentElement.classList.add("is-missing");
-    }
-    img.loading = "eager";
-    img.addEventListener("error", next);
-    if (img.complete && img.naturalWidth === 0) next();
-  });
+  // Imagens dos projectos abrem ampliadas numa janela; sem JS, o link abre a imagem
+  var lightbox = document.querySelector(".lightbox");
+  if (lightbox && lightbox.showModal) {
+    var big = lightbox.querySelector("img");
+    var opener = null;
+
+    document.querySelectorAll(".thumb").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        var img = link.querySelector("img");
+        opener = link;
+        big.src = link.getAttribute("href");
+        big.alt = img ? img.alt : "";
+        lightbox.showModal();
+      });
+    });
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", function () { lightbox.close(); });
+    // Clicar fora da imagem também fecha
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("close", function () {
+      big.removeAttribute("src");
+      if (opener) opener.focus();
+    });
+  }
 
   var gallery = document.querySelector(".gallery");
   if (gallery) {

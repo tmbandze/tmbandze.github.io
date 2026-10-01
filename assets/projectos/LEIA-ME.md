@@ -1,19 +1,27 @@
 # Imagens dos projectos
 
-Coloca aqui as capturas de ecrã com estes nomes. Podem ser `.png`, `.jpg` ou `.webp`.
-Cada projecto aceita até três imagens: a `-01` aparece grande e a `-02` e a `-03`
-aparecem lado a lado por baixo. As que não existirem ficam escondidas.
+Cada projecto tem a sua pasta:
 
-| Projecto                 | Ficheiros                                                        |
-|--------------------------|------------------------------------------------------------------|
-| Sangue Solidário         | `sangue-solidario-01`, `sangue-solidario-02`, `sangue-solidario-03` |
-| Java School              | `java-school-01`, `java-school-02`, `java-school-03`             |
-| StageUP                  | `stageup-01`, `stageup-02`, `stageup-03`                         |
-| Materiais de computação  | `materiais-01`, `materiais-02`, `materiais-03`                   |
+| Pasta        | Projecto no site    | Como aparece                                              |
+|--------------|---------------------|-----------------------------------------------------------|
+| `SENASA/`    | Sangue Solidário    | Uma imagem grande (`sigds-painel-e-app.webp`)             |
+| `StageUp/`   | StageUP             | Imagem grande (`stageup-00-…`) e miniaturas por baixo     |
+| `NTWANANO/`  | Ntwanano            | Faixa de ecrãs de telemóvel que desliza para o lado       |
 
-Dicas:
+Todas as imagens abrem em tamanho grande quando se clica nelas.
 
-- Usa capturas com proporção 16:10 (por exemplo 1440×900) para ficarem todas iguais.
-- Mantém cada ficheiro abaixo de ~400 KB.
-- Depois de pores as imagens, actualiza o texto `alt` de cada uma em `index.html`
-  para descrever o que o ecrã mostra.
+## Acrescentar ou trocar imagens
+
+1. Coloca a imagem na pasta do projecto (PNG, JPG ou WebP).
+2. Em `index.html`, procura o nome do projecto e copia uma linha `<a class="thumb" …>`
+   que já lá esteja. Muda o caminho no `href` e no `src` e escreve no `alt` o que o
+   ecrã mostra.
+3. Ecrãs de computador ficam melhor em 16:10 (por exemplo 1440×900); ecrãs de telemóvel
+   vão para a faixa `phones`.
+
+Mantém cada imagem abaixo de ~400 KB. Imagens grandes podem ser comprimidas em
+squoosh.app. Por exemplo, `SIGDS_dashboard_mobile.png` (1,1 MB) foi reduzida para
+`sigds-painel-e-app.webp` (96 KB), e o original só abre quando se amplia a imagem.
+
+Para Java School e os materiais de computação ainda não há imagens. Cria uma pasta para
+cada um e diz-me quando lá tiveres posto as imagens, ou segue os passos acima.

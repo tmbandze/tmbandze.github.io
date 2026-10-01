@@ -270,16 +270,74 @@ nav { margin-left: auto; }
 }
 .shot img { width: 100%; }
 .shot.is-missing { display: none; }
+/* Montagens com fundo transparente dispensam a moldura */
+.shot-plain { border: 0; border-radius: 0; }
 
-/* Capturas 02 e 03 lado a lado, por baixo da principal */
-.shot-extra {
+/* Imagens que abrem em tamanho grande */
+.thumb { display: block; cursor: zoom-in; }
+.thumb img { transition: opacity .15s; }
+.thumb:hover img { opacity: .88; }
+
+/* Grelha de miniaturas por baixo da imagem principal */
+.thumbs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .5rem;
   margin: -.75rem 0 1.5rem;
 }
-.shot-extra .shot { margin: 0; }
-.shot-extra:not(:has(.shot:not(.is-missing))) { display: none; }
+.thumbs .thumb {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Ecrãs de telemóvel numa faixa que desliza na horizontal */
+.phones {
+  display: flex;
+  gap: .75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  margin: .25rem 0 1.5rem;
+  padding-bottom: .75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.phones .thumb {
+  flex: 0 0 150px;
+  scroll-snap-align: start;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+.phones img { width: 100%; height: auto; }
+
+/* Janela da imagem ampliada */
+.lightbox {
+  width: 100vw; height: 100vh;
+  max-width: none; max-height: none;
+  margin: 0; padding: clamp(1rem, 4vw, 3rem);
+  border: 0;
+  background: transparent;
+}
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+.lightbox img {
+  max-width: 100%;
+  max-height: calc(100vh - 6rem);
+  width: auto; height: auto;
+  border-radius: 6px;
+}
+.lightbox-close {
+  position: fixed; top: 1rem; right: 1rem;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  cursor: pointer;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, .22); }
 
 .meta { margin: 0 0 1.25rem; font-size: .9375rem; }
 .meta div {
