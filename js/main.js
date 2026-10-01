@@ -30,6 +30,11 @@
   var year = document.getElementById("ano");
   if (year) year.textContent = new Date().getFullYear();
 
+  // Contactos ainda por preencher não aparecem no site
+  document.querySelectorAll(".contact-list li").forEach(function (item) {
+    if (item.innerHTML.indexOf("SUBSTITUIR") !== -1) item.hidden = true;
+  });
+
   // Fotos e capturas que ainda não existem ficam escondidas
   function whenMissing(img, fn) {
     if (img.complete && img.naturalWidth === 0) fn();
